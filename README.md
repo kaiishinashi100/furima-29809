@@ -81,4 +81,4 @@ Things you may want to cover:
 | building-name | string   | null: false |
 | phone-number  | integer  | null: false |
 
-- belongs_to :treasurers
+- belongs_to :treasurer
