@@ -36,7 +36,7 @@ Things you may want to cover:
 | first-name-full-width  | string  | null: false |
 | family-name--kana      | string  | null: false |
 | first-name--kana       | string  | null: false |
-| date                   | string  | null: false |
+| birth_day              | date    | null: false |
 
 - has_many :items
 - has_one :treasurer
@@ -45,18 +45,19 @@ Things you may want to cover:
 
 | Column                   | Type    | Options     |
 | ------------------------ | ------- | ----------- |
-| item-name                | string  | null: false |
-| category                 | string  | null: false |
-| place                    | string  | null: false |
-| item-file                | string  | null: false |
-| explanation              | string  | null: false |
-| status                   | string  | null: false |
-| delivery-fee             | string  | null: false |
+| name                     | string  | null: false |
+| category                 | integer | null: false |
+| place                    | integer | null: false |
+| file                     | string  | null: false |
+| explanation              | text    | null: false |
+| status                   | integer | null: false |
+| delivery-fee             | integer | null: false |
 | shipment-source          | string  | null: false |
-| delivery-completion-date | string  | null: false |
+| delivery-completion-date | integer | null: false |
+| delivery-area            | integer | null: false |
 
-- belongs_to :users
-- belongs_to :treasurer
+- belongs_to :user
+- has_one :treasurer
 
 ## treasurersテーブル
 
@@ -65,14 +66,19 @@ Things you may want to cover:
 | user_id   | string  | null: false |
 | item_id   | string  | null: false |
 
-- belongs_to :users
-- has_many :items
+- belongs_to :user
+- belongs_to :item
 - has one :shipping_address
 
-## shipping_addressテーブル
+## shipping_addressesテーブル
 
-| Column    | Type    | Options     |
-| --------- | ------- | ----------- |
-| address   | string  | null: false |
+| Column        | Type     | Options     |
+| ------------- | -------- | ----------- |
+| postal-code   | integer  | null: false |
+| prefecture    | string   | null: false |
+| city          | string   | null: false |
+| address       | integer  | null: false |
+| building-name | string   | null: false |
+| phone-number  | integer  | null: false |
 
 - belongs_to :treasurers
