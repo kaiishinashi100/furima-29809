@@ -39,7 +39,7 @@ Things you may want to cover:
 | birth_day              | date    | null: false |
 
 - has_many :items
-- has_one :treasurer
+- has_many :treasurer
 
 ## itemsテーブル
 
@@ -74,11 +74,13 @@ Things you may want to cover:
 
 | Column        | Type     | Options     |
 | ------------- | -------- | ----------- |
-| postal-code   | integer  | null: false |
+| postal-code   | string   | null: false |
 | prefecture    | string   | null: false |
 | city          | string   | null: false |
 | address       | integer  | null: false |
-| building-name | string   | null: false |
-| phone-number  | integer  | null: false |
+| building-name | string   |             |
+| phone-number  | string   | null: false |
+| user_id       | string   | null: false |
+| item_id       | string   | null: false |
 
 - belongs_to :treasurer
