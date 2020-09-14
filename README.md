@@ -39,32 +39,32 @@ Things you may want to cover:
 | birth_day              | date    | null: false |
 
 - has_many :items
-- has_many :treasurer
+- has_many :treasurers
 
 ## itemsテーブル
 
-| Column                   | Type    | Options     |
-| ------------------------ | ------- | ----------- |
-| name                     | string  | null: false |
-| category                 | integer | null: false |
-| place                    | integer | null: false |
-| file                     | string  | null: false |
-| explanation              | text    | null: false |
-| status                   | integer | null: false |
-| delivery-fee             | integer | null: false |
-| shipment-source          | string  | null: false |
-| delivery-completion-date | integer | null: false |
-| delivery-area            | integer | null: false |
+| Column                   | Type    | Options                        |
+| ------------------------ | ------- | ------------------------------ |
+| name                     | string  | null: false                    |
+| category                 | integer | null: false                    |
+| place                    | integer | null: false                    |
+| explanation              | text    | null: false                    |
+| status                   | integer | null: false                    |
+| delivery-fee             | integer | null: false                    |
+| shipment-source          | integer | null: false                    |
+| delivery-completion-date | integer | null: false                    |
+| user_id                  | string  | null: false, foreign_key: true |
 
 - belongs_to :user
 - has_one :treasurer
 
 ## treasurersテーブル
 
-| Column    | Type    | Options     |
-| --------- | ------- | ----------- |
-| user_id   | string  | null: false |
-| item_id   | string  | null: false |
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| user_id | integer | null: false, foreign_key: true |
+| item_id | integer | null: false, foreign_key: true |
+
 
 - belongs_to :user
 - belongs_to :item
@@ -72,15 +72,14 @@ Things you may want to cover:
 
 ## shipping_addressesテーブル
 
-| Column        | Type     | Options     |
-| ------------- | -------- | ----------- |
-| postal-code   | string   | null: false |
-| prefecture    | string   | null: false |
-| city          | string   | null: false |
-| address       | integer  | null: false |
-| building-name | string   |             |
-| phone-number  | string   | null: false |
-| user_id       | string   | null: false |
-| item_id       | string   | null: false |
+| Column        | Type    | Options                        |
+| ------------- | ------- | ------------------------------ |
+| postal-code   | string  | null: false                    |
+| prefecture    | integer | null: false                    |
+| city          | string  | null: false                    |
+| address       | integer | null: false                    |
+| building-name | string  |                                |
+| phone-number  | string  | null: false                    |
+| treasurer_id  | integer | null: false, foreign_key: true |
 
 - belongs_to :treasurer
