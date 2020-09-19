@@ -43,17 +43,17 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Column                   | Type    | Options                        |
-| ------------------------ | ------- | ------------------------------ |
-| name                     | string  | null: false                    |
-| category                 | integer | null: false                    |
-| place                    | integer | null: false                    |
-| explanation              | text    | null: false                    |
-| status                   | integer | null: false                    |
-| delivery_fee             | integer | null: false                    |
-| shipment_source          | integer | null: false                    |
-| delivery_completion_date | integer | null: false                    |
-| user_id                  | string  | null: false, foreign_key: true |
+| Column                      | Type    | Options                        |
+| --------------------------- | ------- | ------------------------------ |
+| name                        | string  | null: false                    |
+| genre_id                    | integer | null: false                    |
+| place                       | integer | null: false                    |
+| explanation                 | text    | null: false                    |
+| status_id                   | integer | null: false                    |
+| delivery_fee_id             | integer | null: false                    |
+| shipment_source_id          | integer | null: false                    |
+| delivery_completion_date_id | integer | null: false                    |
+| user_id                     | string  | null: false, foreign_key: true |
 
 - belongs_to :user
 - has_one :treasurer
