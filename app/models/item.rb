@@ -7,7 +7,8 @@ class Item < ApplicationRecord
     
     validates  :name, length: { maximum: 40 }
     validates  :genre_id 
-    validates  :place
+    validates  :place, format:
+    { with: /\A[0-9]{3,7}+\z/i, message: '半角数字で300~9,999,999円までの範囲で入力してください' }
     validates  :explanation, length: { maximum: 1000 }
     validates  :status_id
     validates  :delivery_fee_id
