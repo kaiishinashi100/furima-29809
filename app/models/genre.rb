@@ -1,4 +1,4 @@
-class Genre < ActiveHash::Base ##カテゴリーのプルダウン実装
+class Genre < ActiveHash::Base # #カテゴリーのプルダウン実装
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: 'レディース' },
@@ -12,4 +12,3 @@ class Genre < ActiveHash::Base ##カテゴリーのプルダウン実装
     { id: 10, name: 'その他' }
   ]
 end
-
