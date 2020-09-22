@@ -83,12 +83,12 @@ RSpec.describe Item, type: :modul do
       it 'placeが299円以下だと出品できない' do
         @item.place = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Place 300~9,999,999の半角数字のみで入力してください")
+        expect(@item.errors.full_messages).to include('Place 300~9,999,999の半角数字のみで入力してください')
       end
       it 'placeが9,999,999円以上だと出品できない' do
-        @item.place = 10000000
+        @item.place = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Place 300~9,999,999の半角数字のみで入力してください")
+        expect(@item.errors.full_messages).to include('Place 300~9,999,999の半角数字のみで入力してください')
       end
     end
   end
