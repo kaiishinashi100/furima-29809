@@ -8,7 +8,5 @@ FactoryBot.define do
     delivery_fee_id             { 2 }
     shipment_source_id          { 2 }
     delivery_completion_date_id { 2 }
-
-    association :user
   end
 end
