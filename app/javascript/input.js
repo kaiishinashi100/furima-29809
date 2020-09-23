@@ -1,4 +1,4 @@
-window.addEventListener('load', function(){
+function price() {
 
   const priceInput = document.getElementById("item-price")
   const priceParents = document.querySelectorAll(".price-input")
@@ -12,4 +12,5 @@ window.addEventListener('load', function(){
       value2 = priceInput.value
       profit.innerHTML = value2 - value1 * 0.1
     })
-})
+}
+window.addEventListener('load', price)
