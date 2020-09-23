@@ -1,4 +1,4 @@
-class ShipmentSource < ActiveHash::Base # #カテゴリーのプルダウン実装
+class ShipmentSource < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '北海道' },
@@ -48,4 +48,6 @@ class ShipmentSource < ActiveHash::Base # #カテゴリーのプルダウン実�
     { id: 46, name: '鹿児島県' },
     { id: 47, name: '沖縄県' }
   ]
+  include ActiveHash::Associations
+  has_many :shipment_source
 end
