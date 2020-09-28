@@ -1,14 +1,14 @@
 class Order
   include ActiveModel::Model
-  attr_accessor :token, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :user_id, :item_id, :treasurer_id, :place
+  attr_accessor :token, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :user_id, :item_id, :treasurer_id
 
   with_options presence: true do
     ##tresurerモデルから
-    validates :user_id
-    validates :item_id
+    # validates :user_id
+    # validates :item_id
 
     ##addressモデルから
-    validates :treasurer_id
+    # validates :treasurer_id
     validates :postal_code
     validates :city
     validates :prefecture_id
@@ -17,7 +17,7 @@ class Order
     validates :phone_number
 
     ##トークンと購入金額
-    validates :place
+    # validates :place
     validates :token
   end
 

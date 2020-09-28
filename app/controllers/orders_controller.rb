@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params) 
-    if @order.invalid?
+    if @order.valid?
       pay_item
       @order.save
       return redirect_to root_path
