@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items = Item.order('user_id DESC')
+    @treasurer = Treasurer.find_by(params[:item_id])
+    
   end
 
   def new
@@ -10,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @treasurer = Treasurer.find_by(params[:item_id])
   end
 
   def edit

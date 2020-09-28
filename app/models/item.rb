@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
+  has_one :treasurer
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   belongs_to_active_hash :status
