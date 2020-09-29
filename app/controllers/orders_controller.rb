@@ -1,15 +1,14 @@
 class OrdersController < ApplicationController
-  
   before_action :set_order, only: [:index, :create]
   def index
   end
 
   def create
-    @order = Order.new(order_params) 
+    @order = Order.new(order_params)
     if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'index'
     end
@@ -27,13 +26,11 @@ class OrdersController < ApplicationController
 
   def pay_item
     @item = Item.find_by(params[:item_id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      
       amount: @item.place,
       card: order_params[:token],
-      currency:'jpy'
+      currency: 'jpy'
     )
   end
-  
 end
