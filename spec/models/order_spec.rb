@@ -49,5 +49,10 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include('Phone number is invalid')
     end
+    it '電話番号が11桁以内でないと購入できない' do
+      @order.phone_number = '000000000000'
+      @order.valid?
+      expect(@order.errors.full_messages).to include('Phone number is invalid')
+    end
   end
 end
