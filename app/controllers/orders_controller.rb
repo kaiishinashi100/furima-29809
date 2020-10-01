@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   end
 
   private
-　
+
   def order_params
     params.permit(:token, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :treasurer_id, :item_id, :place).merge(user_id: current_user.id)
   end
