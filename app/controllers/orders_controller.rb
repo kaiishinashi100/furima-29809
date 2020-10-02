@@ -1,16 +1,19 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:index, :create]
   def index
+    redirect_to new_user_session_path if user_signed_in? && current_user.id == @item.user_id
+    @order = Order.new
   end
 
   def create
+    # binding.pry
     @order = Order.new(order_params)
     if @order.valid?
       pay_item
       @order.save
       redirect_to root_path
     else
-      render 'index'
+      render template: "orders/index"
     end
   end
 
@@ -21,11 +24,11 @@ class OrdersController < ApplicationController
   end
 
   def set_order
-    @item = Item.find_by(params[:item_id])
+      @item = Item.find(params[:item_id])
   end
 
   def pay_item
-    @item = Item.find_by(params[:item_id])
+    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.place,
@@ -33,4 +36,5 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
+
 end
