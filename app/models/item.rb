@@ -23,3 +23,7 @@ class Item < ApplicationRecord
     validates  :user_id
   end
 end
+
+# rails db:drop → rails db:create → rails db:migrate
+# ローカルで会員登録＆出品を再度実行
+# git add . → git commit -m "syupping" → git push heroku master 
