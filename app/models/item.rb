@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_completion_date
 
   with_options presence: true do
+    validates  :image
     validates  :name, length: { maximum: 40 }
     validates  :genre_id, numericality: { other_than: 1, message: 'Select' }
     validates  :place, numericality:
