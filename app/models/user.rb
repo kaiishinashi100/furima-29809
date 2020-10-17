@@ -8,7 +8,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname, length: { maximum: 10 }
     validates :email, format:
-              { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, essage: '正しく入力してください' }
+              { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: '正しく入力してください' }
     validates :password, format:
               { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6}+\z/i, message: '英数字を含めてください' }
     validates :family_name_full_width,
